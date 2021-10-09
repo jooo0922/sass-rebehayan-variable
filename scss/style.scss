@@ -1,6 +1,12 @@
-// 한 줄 주석 (.scss 파일에서만 적용. .css로 컴파일 시 사라짐.)
+// 한 줄 주석
 /*
-여러 줄 주석 (.scss 파일과 .css 파일 모두에 존재함. -> css에서도 보여져야 한다며 여러 줄 주석으로 쓰기)
+여러 줄 주석 
+
+튜토리얼 강의에서는 다르게 설명하고 있기는 한데,
+vscode에서 live sass compiler를 이용해서 css 파일로 컴파일할 때를 기준으로 하면,
+한 줄 주석과 여러 줄 주석 모두 css에서 제거되어 버림.
+
+만약 css에서 주석을 기록해줘야 한다면 컴파일된 css에 따로 해줘야 할 듯.
 */
 
 /*
@@ -14,4 +20,36 @@
 모두 가능함.
 이 때 항상 앞에 $ 표시를 넣어줘야 변수로 만들 수 있음.
 */
-$gray: #333;
+$gray: #c9c9c9;
+$white: #fff;
+$blue: blue;
+$red: red;
+$fs30: 30px;
+
+// 기본적으로 sass에서도 코드를 넣는 방법은 css와 유사함.
+.btn1 {
+  display: block;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-size: $fs30;
+  color: $gray; // 이런 식으로 미리 만들어놓은 변수를 할당하는 거임.
+  background-color: $white;
+  border: 1px solid $gray;
+  text-align: center;
+
+  &:hover {
+    // 여기서 &은 가상 선택자(즉, .btn1을 의미함.) -> nesting 시 이런 식으로 & 기호로 상위 요소의 클래스명을 대체할 수 있음.
+    background-color: $gray;
+    color: $white;
+  }
+}
+
+.btn2 {
+  display: block;
+  padding: 10px;
+  font-size: $fs30;
+  border: 1px solid $red;
+  background-color: $blue;
+  color: $gray;
+}
